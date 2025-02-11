@@ -2,6 +2,7 @@ import React from "react";
 import { Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { statusCodes } from "@react-native-google-signin/google-signin";
+import { GoogleSignIn } from "@react-native-google-signin/google-signin";
 
 const GoogleLogin = () => {
     const handleGoogleLogin = async () => {
@@ -25,7 +26,7 @@ const GoogleLogin = () => {
     return (
         <TouchableOpacity
         activeOpacity={0.6}
-        onPree={handleGoogleLogin}
+        onPress={handleGoogleLogin}
         style={styles.container}>
             <Image style={styles.image} source={require('../../assets/google.png')}/>
         </TouchableOpacity>
