@@ -7,7 +7,7 @@ const Checkbox = ({checked, onCheck}) => {
         <TouchableOpacity
             activeOpacity={1}
             onPress={() => onCheck(!checked)}
-            styles={styles.container}>
+            style={styles.container}>
                 {checked ? (
                     <View style={styles.innerContainer}>
                         <Image

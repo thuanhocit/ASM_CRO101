@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import AuthHeader from "../../../components/AuthHeader";
 import Input from "../../../components/Input";
-import Checkbox from "../../../components/CheckBox";
 import Button from "../../../components/Button";
 import Separator from "../../../components/Separator";
 import GoogleLogin from "../../../components/GoogleLogin";
+import Checkbox from "../../../components/CheckBox";
 
 const SignUp = ({ navigation }) => {
     const [checked, setChecked] = useState(false);
 
     const onSignIn = () => {
-        navigation.navigate("Signin"); // Ensure "SignIn" exists in your navigation stack
+        navigation.navigate("Signin");
     };
 
     return (
@@ -22,8 +22,11 @@ const SignUp = ({ navigation }) => {
             <Input label="Email" placeholder="Example: thuanhocit@example.com" />
             <Input isPassword label="Password" placeholder="******" />
 
+            {/* Căn thẳng checkbox với chữ */}
             <View style={styles.checkRow}>
-                <Checkbox checked={checked} onCheck={setChecked} />
+                <TouchableOpacity onPress={() => setChecked(!checked)} style={styles.checkboxContainer}>
+                    <Checkbox checked={checked} onCheck={() => setChecked(!checked)} />
+                </TouchableOpacity>
                 <Text style={styles.checkText}>I agree with Terms & Privacy</Text>
             </View>
 
