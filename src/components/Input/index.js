@@ -5,7 +5,7 @@ import { styles } from "./styles";
 const Input = ({label, placeholder, isPassword}) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    const onEyePree = () => {
+    const onEyePress = () => {
         setIsPasswordVisible(isPasswordVisible);
     }
 
@@ -19,7 +19,7 @@ const Input = ({label, placeholder, isPassword}) => {
                 style={styles.input}
                 />
                 {isPassword ? (
-                    <Pressable onPres={onEyePree}>
+                    <Pressable onPres={onEyePress}>
                         <Image
                         style={styles.eye}
                         source={
