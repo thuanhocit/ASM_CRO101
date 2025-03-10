@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { TextInput, Text, View, Pressable, Image } from "react-native";
-import { styles } from "./styles";
+import React, { useState } from 'react';
+import { Text, TextInput, View, Pressable, Image } from 'react-native';
+import { styles } from './styles';
 
-const Input = ({ label, placeholder, isPassword }) => {
+const Input = ({ label, placeholder, isPassword, value, onChangeText }) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const onEyePress = () => {
-        setIsPasswordVisible(!isPasswordVisible); // Đổi trạng thái hiển thị mật khẩu
+        setIsPasswordVisible(!isPasswordVisible);
     };
 
     return (
@@ -14,12 +14,13 @@ const Input = ({ label, placeholder, isPassword }) => {
             <Text style={styles.label}>{label}</Text>
             <View style={styles.inputContainer}>
                 <TextInput
+                    value={value} onChangeText={onChangeText}
                     secureTextEntry={isPassword && !isPasswordVisible}
                     placeholder={placeholder}
                     style={styles.input}
                 />
                 {isPassword ? (
-                    <Pressable onPress={onEyePress}> 
+                    <Pressable onPress={onEyePress}>
                         <Image
                             style={styles.eye}
                             source={
@@ -34,5 +35,4 @@ const Input = ({ label, placeholder, isPassword }) => {
         </View>
     );
 };
-
-export default Input;
+export default React.memo(Input);
